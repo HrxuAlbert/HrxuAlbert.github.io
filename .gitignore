@@ -1,0 +1,6 @@
+# Local-only files (never publish these to the public repo)
+LOCAL_NOTES.md
+publish.sh
+
+# macOS
+.DS_Store

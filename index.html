@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Haoran Xu</title>
+  <style>
+    :root {
+      --text: #222222;
+      --muted: #666666;
+      --line: #e5e5e5;
+      --link: #4f7fcf;
+      --bg: #ffffff;
+      --maxw: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 28px 34px 56px;
+    }
+
+    .header-bar {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .identity {
+      min-width: 280px;
+    }
+
+    .site-title {
+      font-size: 34px;
+      font-weight: 300;
+      margin: 0;
+      letter-spacing: -0.03em;
+    }
+
+    .site-subtitle {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .site-affil {
+      margin-top: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .site-tagline {
+      margin-top: 3px;
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    .top-icons {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      padding-top: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .top-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #000000;
+    }
+
+    .top-icons a:hover {
+      text-decoration: none;
+      opacity: 0.75;
+    }
+
+    .top-icons svg {
+      width: 30px;
+      height: 30px;
+      fill: currentColor;
+      display: block;
+    }
+
+    .divider {
+      border: 0;
+      border-top: 1px solid var(--line);
+      margin: 22px 0 36px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 270px;
+      gap: 52px;
+      align-items: start;
+    }
+
+    .main-col {
+      min-width: 0;
+    }
+
+    .side-col {
+      padding-top: 108px;
+    }
+
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1.08;
+      background: linear-gradient(135deg, #f1f5f9, #dbe4ee);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #4b5563;
+      font-size: 42px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin: 0 0 20px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    p {
+      margin: 0 0 18px;
+      font-size: 18px;
+    }
+
+    .section {
+      margin-bottom: 42px;
+    }
+
+    .work-list {
+      margin: 0;
+      padding-left: 38px;
+      font-size: 18px;
+    }
+
+    .work-list li {
+      margin-bottom: 24px;
+      padding-left: 2px;
+    }
+
+    .work-title {
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .work-meta {
+      color: #333333;
+      margin-top: 2px;
+    }
+
+    .work-links {
+      margin-top: 2px;
+    }
+
+    .coming-soon {
+      color: var(--muted);
+    }
+
+    .agenda-list {
+      margin: 0;
+      padding-left: 24px;
+      font-size: 18px;
+    }
+
+    .agenda-list li {
+      margin-bottom: 18px;
+      padding-left: 4px;
+    }
+
+    .agenda-q {
+      font-weight: 700;
+      display: block;
+    }
+
+    .agenda-d {
+      color: #333333;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .project-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 18px;
+    }
+
+    .project-list li {
+      margin-bottom: 20px;
+    }
+
+    .project-name {
+      font-weight: 700;
+    }
+
+    .project-desc {
+      color: #333333;
+      margin-top: 2px;
+    }
+
+    .project-link {
+      margin-top: 2px;
+    }
+
+    .footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        padding: 24px 20px 42px;
+      }
+
+      .header-bar {
+        flex-direction: column;
+      }
+
+      .top-icons {
+        justify-content: flex-start;
+        gap: 18px;
+        padding-top: 0;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .side-col {
+        order: -1;
+        padding-top: 0;
+        max-width: 240px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header class="header-bar">
+      <div class="identity">
+        <h1 class="site-title">Haoran Xu</h1>
+        <div class="site-subtitle">许浩然</div>
+        <div class="site-affil">PhD Student, University of Glasgow</div>
+        <div class="site-tagline">Trustworthy Multi-Agent AI · Selective Commitment · Byzantine-Resilient Collaboration</div>
+      </div>
+
+      <nav class="top-icons" aria-label="External links">
+        <a href="mailto:2614067x@student.gla.ac.uk" aria-label="Email" title="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 5.75A2.75 2.75 0 0 1 5.25 3h13.5a2.75 2.75 0 0 1 2.75 2.75v12.5A2.75 2.75 0 0 1 18.75 21H5.25A2.75 2.75 0 0 1 2.5 18.25V5.75Zm2.33-.75L12 10.57 19.17 5H4.83Zm14.67 1.31-7.04 5.48a.75.75 0 0 1-.92 0L4.5 6.31v11.94c0 .41.34.75.75.75h13.5c.41 0 .75-.34.75-.75V6.31Z"/></svg>
+        </a>
+        <a href="https://scholar.google.co.uk/citations?user=0P97wsUAAAAJ&hl=zh-CN" aria-label="Google Scholar" title="Google Scholar" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 8.15l11 6 9-4.91V17h2V8.15L12 2Zm-7.3 6.15L12 4.17l7.3 3.98L12 12.13 4.7 8.15ZM6 13.33v3.42C6 19.2 8.69 20 12 20s6-.8 6-3.25v-3.42L12 16.6 6 13.33Z"/></svg>
+        </a>
+        <a href="https://github.com/HrxuAlbert" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.66.5 12.03c0 5.1 3.3 9.42 7.88 10.95.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.29-5.25-5.74 0-1.27.45-2.31 1.19-3.13-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.19 1.2a10.98 10.98 0 0 1 5.8 0c2.22-1.51 3.19-1.2 3.19-1.2.63 1.59.23 2.77.11 3.06.74.82 1.19 1.86 1.19 3.13 0 4.46-2.69 5.44-5.26 5.73.41.36.78 1.08.78 2.18 0 1.57-.01 2.84-.01 3.22 0 .31.21.67.8.56A11.53 11.53 0 0 0 23.5 12.03C23.5 5.66 18.35.5 12 .5Z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/haoran-xu-2454b0336/" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.48 2.48 0 1 0 5 8.46 2.48 2.48 0 0 0 4.98 3.5ZM3.5 9.75h3v10.75h-3V9.75Zm5.25 0h2.88v1.47h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6v6.24h-3v-5.53c0-1.32-.02-3.02-1.84-3.02-1.85 0-2.13 1.45-2.13 2.93v5.62h-3V9.75Z"/></svg>
+        </a>
+      </nav>
+    </header>
+
+    <hr class="divider" />
+
+    <div class="content-grid">
+      <div class="main-col">
+        <section class="section">
+          <h2>About</h2>
+          <p>
+            I am a PhD student in the James Watt School of Engineering at the University of Glasgow.
+          </p>
+          <p>
+            My research focuses on trustworthy multi-agent AI systems, with a particular interest in how
+            collaborative AI agents can decide when to commit, when to abstain, and when to safely abort
+            under adversarial disagreement, semantic poisoning, and unreliable evidence.
+          </p>
+          <p>
+            More broadly, I work on protocol-level mechanisms that connect ideas from distributed computing,
+            Byzantine resilience, robust aggregation, and evidence-aware decision making to improve the
+            reliability of LLM-agent collaboration.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>Research agenda</h2>
+          <p>
+            My current research agenda is to build trustworthy control and commitment mechanisms for
+            multi-agent AI systems. I am particularly interested in three questions:
+          </p>
+          <ol class="agenda-list">
+            <li>
+              <span class="agenda-q">When should a multi-agent system commit?</span>
+              <span class="agenda-d">Designing mechanisms that distinguish reliable agreement from superficial or unsafe consensus.</span>
+            </li>
+            <li>
+              <span class="agenda-q">How can agent collaboration remain robust under semantic attacks?</span>
+              <span class="agenda-d">Studying Byzantine-style adversarial behaviors in natural-language proposals, evidence use, and agent reasoning.</span>
+            </li>
+            <li>
+              <span class="agenda-q">How can commitment be certified?</span>
+              <span class="agenda-d">Developing certificate-based mechanisms that make agent decisions auditable, reproducible, and safe to reject when agreement is insufficient.</span>
+            </li>
+          </ol>
+        </section>
+
+        <section class="section">
+          <h2>Selected work</h2>
+          <ul class="work-list">
+            <li>
+              <div class="work-title">Hierarchical Certified Semantic Commitment for Trustworthy Multi-Agent Collaboration</div>
+              <div class="work-meta">Haoran Xu, Lei Zhang, Iadh Ounis, Xianbin Wang</div>
+              <div class="work-meta">arXiv preprint, 2026</div>
+              <div class="work-links"><span class="coming-soon">paper coming soon · code coming soon</span></div>
+            </li>
+            <li>
+              <div class="work-title">A Multi-Round Voting Consensus Framework via Evolutionary Game Theory and Score Completion</div>
+              <div class="work-meta">Haoran Xu, Zhongxu Dong, Yixuan Fan, Huanyu Wu, Qiming Li, Yao Sun, Lei Zhang</div>
+              <div class="work-meta">IEEE International Conference on Communications Workshops (ICC Workshops), 2026</div>
+              <div class="work-links"><span class="coming-soon">paper · code · slides · bibtex coming soon</span></div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>Selected projects</h2>
+          <ul class="project-list">
+            <li>
+              <div class="project-name">H-CSC</div>
+              <div class="project-desc">Hierarchical Certified Semantic Commitment for trustworthy multi-agent collaboration.</div>
+              <div class="project-link"><span class="coming-soon">code coming soon</span></div>
+            </li>
+            <li>
+              <div class="project-name">CRSE / FBA Encoder</div>
+              <div class="project-desc">A robust semantic encoder for Byzantine-resilient semantic agreement.</div>
+              <div class="project-link"><a href="https://github.com/HrxuAlbert/FBA_ENCODER" target="_blank" rel="noopener noreferrer">github.com/HrxuAlbert/FBA_ENCODER</a></div>
+            </li>
+            <li>
+              <div class="project-name">LLM API Demos</div>
+              <div class="project-desc">Lightweight demos for structured LLM API usage, agent workflows, and research prototyping.</div>
+              <div class="project-link"><a href="https://github.com/HrxuAlbert/LLM-API-demos" target="_blank" rel="noopener noreferrer">github.com/HrxuAlbert/LLM-API-demos</a></div>
+            </li>
+            <li>
+              <div class="project-name">Work Planner</div>
+              <div class="project-desc">A local-first academic workflow tool for research planning and execution tracking.</div>
+              <div class="project-link"><a href="https://github.com/HrxuAlbert/Work-Planner" target="_blank" rel="noopener noreferrer">github.com/HrxuAlbert/Work-Planner</a></div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>Education</h2>
+          <p>
+            <strong>University of Glasgow</strong><br />
+            PhD in Engineering, James Watt School of Engineering, 2024–present
+          </p>
+        </section>
+
+        <div class="footer">Last updated: June 2026</div>
+      </div>
+
+      <aside class="side-col">
+        <div class="profile-photo" aria-label="profile photo">
+          <img src="assets/profile.jpg" alt="Haoran Xu" />
+        </div>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
