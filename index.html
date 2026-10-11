@@ -282,14 +282,14 @@
         <h1 class="site-title">Haoran Xu</h1>
         <div class="site-subtitle">许浩然</div>
         <div class="site-affil">PhD Student, University of Glasgow</div>
-        <div class="site-tagline">Trustworthy Multi-Agent AI · Selective Commitment · Byzantine-Resilient Collaboration</div>
+        <div class="site-tagline">Trustworthy Multi-Agent LLM Systems · Selective Commitment · Evaluation Methodology</div>
       </div>
 
       <nav class="top-icons" aria-label="External links">
         <a href="mailto:2614067x@student.gla.ac.uk" aria-label="Email" title="Email">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 5.75A2.75 2.75 0 0 1 5.25 3h13.5a2.75 2.75 0 0 1 2.75 2.75v12.5A2.75 2.75 0 0 1 18.75 21H5.25A2.75 2.75 0 0 1 2.5 18.25V5.75Zm2.33-.75L12 10.57 19.17 5H4.83Zm14.67 1.31-7.04 5.48a.75.75 0 0 1-.92 0L4.5 6.31v11.94c0 .41.34.75.75.75h13.5c.41 0 .75-.34.75-.75V6.31Z"/></svg>
         </a>
-        <a href="https://scholar.google.co.uk/citations?user=0P97wsUAAAAJ&hl=zh-CN" aria-label="Google Scholar" title="Google Scholar" target="_blank" rel="noopener noreferrer">
+        <a href="https://scholar.google.co.uk/citations?user=0P97wsUAAAAJ&amp;hl=en" aria-label="Google Scholar" title="Google Scholar" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 8.15l11 6 9-4.91V17h2V8.15L12 2Zm-7.3 6.15L12 4.17l7.3 3.98L12 12.13 4.7 8.15ZM6 13.33v3.42C6 19.2 8.69 20 12 20s6-.8 6-3.25v-3.42L12 16.6 6 13.33Z"/></svg>
         </a>
         <a href="https://github.com/HrxuAlbert" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener noreferrer">
@@ -308,56 +308,73 @@
         <section class="section">
           <h2>About</h2>
           <p>
-            I am a PhD student in the James Watt School of Engineering at the University of Glasgow.
+            I am a PhD student in the James Watt School of Engineering at the University of Glasgow,
+            supervised by Prof. Lei Zhang.
           </p>
           <p>
-            My research focuses on trustworthy multi-agent AI systems, with a particular interest in how
-            collaborative AI agents can decide when to commit, when to abstain, and when to safely abort
-            under adversarial disagreement, semantic poisoning, and unreliable evidence.
+            My research is on trustworthy multi-agent LLM systems, centred on selective commitment:
+            when an LLM system, or a group of agents, should act on its evidence, and when it should
+            abstain or flag a conflict instead. I am particularly interested in failures where systems
+            over-commit under partial or conflicting evidence, and in evaluation methods that separate
+            task success from evidence-supported decisions.
           </p>
           <p>
-            More broadly, I work on protocol-level mechanisms that connect ideas from distributed computing,
-            Byzantine resilience, robust aggregation, and evidence-aware decision making to improve the
-            reliability of LLM-agent collaboration.
+            Before moving to AI, I trained in communication engineering, and I still draw on ideas from
+            distributed systems and Byzantine fault tolerance in my work.
           </p>
         </section>
 
         <section class="section">
           <h2>Research agenda</h2>
           <p>
-            My current research agenda is to build trustworthy control and commitment mechanisms for
-            multi-agent AI systems. I am particularly interested in three questions:
+            I am currently working on three related questions:
           </p>
           <ol class="agenda-list">
             <li>
-              <span class="agenda-q">When should a multi-agent system commit?</span>
-              <span class="agenda-d">Designing mechanisms that distinguish reliable agreement from superficial or unsafe consensus.</span>
+              <span class="agenda-q">When should an LLM system commit to a verdict?</span>
+              <span class="agenda-d">Measuring when LLM judges and agents give directional answers on mixed evidence that warrants a non-directional verdict.</span>
             </li>
             <li>
-              <span class="agenda-q">How can agent collaboration remain robust under semantic attacks?</span>
-              <span class="agenda-d">Studying Byzantine-style adversarial behaviors in natural-language proposals, evidence use, and agent reasoning.</span>
+              <span class="agenda-q">How does distributed evidence become action?</span>
+              <span class="agenda-d">Studying how evidence spread across agent roles is reported, combined and turned into decisions, and when the resulting actions are actually supported by that evidence.</span>
             </li>
             <li>
-              <span class="agenda-q">How can commitment be certified?</span>
-              <span class="agenda-d">Developing certificate-based mechanisms that make agent decisions auditable, reproducible, and safe to reject when agreement is insufficient.</span>
+              <span class="agenda-q">When can agreement among agents be certified?</span>
+              <span class="agenda-d">Designing admissibility checks that let a group of possibly faulty agents commit to a shared semantic outcome, or refuse to commit when agreement is insufficient.</span>
             </li>
           </ol>
         </section>
 
         <section class="section">
-          <h2>Selected work</h2>
+          <h2>Publications and preprints</h2>
           <ul class="work-list">
             <li>
-              <div class="work-title">Hierarchical Certified Semantic Commitment for Trustworthy Multi-Agent Collaboration</div>
+              <div class="work-title">Certifiable Semantic Agreement Among LLM Agents: What the Admissibility Instrument Decides</div>
               <div class="work-meta">Haoran Xu, Lei Zhang, Iadh Ounis, Xianbin Wang</div>
-              <div class="work-meta">arXiv preprint, 2026</div>
-              <div class="work-links"><span class="coming-soon">paper coming soon · code coming soon</span></div>
+              <div class="work-meta">arXiv preprint arXiv:2606.07316, 2026</div>
+              <div class="work-links">
+                <a href="https://arxiv.org/abs/2606.07316" target="_blank" rel="noopener noreferrer">arXiv</a> ·
+                <a href="https://arxiv.org/pdf/2606.07316" target="_blank" rel="noopener noreferrer">pdf</a>
+              </div>
+            </li>
+            <li>
+              <div class="work-title">Cherry-pick Override: LLM Judges Under-use the Non-Directional Verdicts Their Contract Authorizes</div>
+              <div class="work-meta">Haoran Xu</div>
+              <div class="work-meta">arXiv preprint arXiv:2606.07834, 2026</div>
+              <div class="work-links">
+                <a href="https://arxiv.org/abs/2606.07834" target="_blank" rel="noopener noreferrer">arXiv</a> ·
+                <a href="https://arxiv.org/pdf/2606.07834" target="_blank" rel="noopener noreferrer">pdf</a> ·
+                <a href="https://github.com/HrxuAlbert/cherry-pick-override" target="_blank" rel="noopener noreferrer">code</a>
+              </div>
             </li>
             <li>
               <div class="work-title">A Multi-Round Voting Consensus Framework via Evolutionary Game Theory and Score Completion</div>
               <div class="work-meta">Haoran Xu, Zhongxu Dong, Yixuan Fan, Huanyu Wu, Qiming Li, Yao Sun, Lei Zhang</div>
-              <div class="work-meta">IEEE International Conference on Communications Workshops (ICC Workshops), 2026</div>
-              <div class="work-links"><span class="coming-soon">paper · code · slides · bibtex coming soon</span></div>
+              <div class="work-meta">IEEE International Conference on Communications Workshops (ICC Workshops, SecCPS), Glasgow, 2026</div>
+              <div class="work-links">
+                <a href="https://doi.org/10.1109/ICCWorkshops63917.2026.11586390" target="_blank" rel="noopener noreferrer">paper</a> ·
+                <a href="https://eprints.gla.ac.uk/388443/" target="_blank" rel="noopener noreferrer">accepted version</a>
+              </div>
             </li>
           </ul>
         </section>
@@ -366,9 +383,9 @@
           <h2>Selected projects</h2>
           <ul class="project-list">
             <li>
-              <div class="project-name">H-CSC</div>
-              <div class="project-desc">Hierarchical Certified Semantic Commitment for trustworthy multi-agent collaboration.</div>
-              <div class="project-link"><span class="coming-soon">code coming soon</span></div>
+              <div class="project-name">Fact2Act (in progress)</div>
+              <div class="project-desc">How LLM systems use evidence spread across roles to make decisions, separating task success from evidence-supported action.</div>
+              <div class="project-link"><span class="coming-soon">preprint in preparation</span></div>
             </li>
             <li>
               <div class="project-name">CRSE / FBA Encoder</div>
@@ -394,9 +411,20 @@
             <strong>University of Glasgow</strong><br />
             PhD in Engineering, James Watt School of Engineering, 2024–present
           </p>
+          <p>
+            <strong>University of Glasgow &amp; University of Electronic Science and Technology of China</strong><br />
+            BEng in Communication Engineering (dual degree), 2024
+          </p>
         </section>
 
-        <div class="footer">Last updated: June 2026</div>
+        <section class="section">
+          <h2>Teaching</h2>
+          <p>
+            Graduate Teaching Assistant, James Watt School of Engineering, University of Glasgow, 2025–present
+          </p>
+        </section>
+
+        <div class="footer">Last updated: October 2026</div>
       </div>
 
       <aside class="side-col">
