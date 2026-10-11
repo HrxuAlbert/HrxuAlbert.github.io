@@ -282,11 +282,11 @@
         <h1 class="site-title">Haoran Xu</h1>
         <div class="site-subtitle">许浩然</div>
         <div class="site-affil">PhD Student, University of Glasgow</div>
-        <div class="site-tagline">Trustworthy Multi-Agent LLM Systems · Selective Commitment · Evaluation Methodology</div>
+        <div class="site-tagline">LLM Agents · Multi-Agent Systems · LLM Evaluation</div>
       </div>
 
       <nav class="top-icons" aria-label="External links">
-        <a href="mailto:2614067x@student.gla.ac.uk" aria-label="Email" title="Email">
+        <a href="mailto:hr.xu.albert@gmail.com" aria-label="Email" title="hr.xu.albert@gmail.com">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 5.75A2.75 2.75 0 0 1 5.25 3h13.5a2.75 2.75 0 0 1 2.75 2.75v12.5A2.75 2.75 0 0 1 18.75 21H5.25A2.75 2.75 0 0 1 2.5 18.25V5.75Zm2.33-.75L12 10.57 19.17 5H4.83Zm14.67 1.31-7.04 5.48a.75.75 0 0 1-.92 0L4.5 6.31v11.94c0 .41.34.75.75.75h13.5c.41 0 .75-.34.75-.75V6.31Z"/></svg>
         </a>
         <a href="https://scholar.google.co.uk/citations?user=0P97wsUAAAAJ&amp;hl=en" aria-label="Google Scholar" title="Google Scholar" target="_blank" rel="noopener noreferrer">
@@ -309,18 +309,18 @@
           <h2>About</h2>
           <p>
             I am a PhD student in the James Watt School of Engineering at the University of Glasgow,
-            supervised by Prof. Lei Zhang.
+            supervised by Prof. Lei Zhang and Prof. Iadh Ounis.
           </p>
           <p>
-            My research is on trustworthy multi-agent LLM systems, centred on selective commitment:
-            when an LLM system, or a group of agents, should act on its evidence, and when it should
-            abstain or flag a conflict instead. I am particularly interested in failures where systems
-            over-commit under partial or conflicting evidence, and in evaluation methods that separate
-            task success from evidence-supported decisions.
+            I study how LLMs and multi-agent LLM systems use evidence to reach decisions. Much of my work
+            looks at over-commitment: LLM judges and agents giving definitive answers when the evidence is
+            partial or conflicting, and agent pipelines that succeed at a task without the evidence to
+            support the action they took.
           </p>
           <p>
-            Before moving to AI, I trained in communication engineering, and I still draw on ideas from
-            distributed systems and Byzantine fault tolerance in my work.
+            I build evaluations that make these failures visible, tracing evidence through agent reports,
+            decisions and outcomes so that people can tell a well-supported decision from a lucky one,
+            and know when human review is needed.
           </p>
         </section>
 
@@ -351,7 +351,7 @@
             <li>
               <div class="work-title">Certifiable Semantic Agreement Among LLM Agents: What the Admissibility Instrument Decides</div>
               <div class="work-meta">Haoran Xu, Lei Zhang, Iadh Ounis, Xianbin Wang</div>
-              <div class="work-meta">arXiv preprint arXiv:2606.07316, 2026</div>
+              <div class="work-meta">Submitted to Transactions on Machine Learning Research (TMLR). arXiv preprint arXiv:2606.07316, 2026</div>
               <div class="work-links">
                 <a href="https://arxiv.org/abs/2606.07316" target="_blank" rel="noopener noreferrer">arXiv</a> ·
                 <a href="https://arxiv.org/pdf/2606.07316" target="_blank" rel="noopener noreferrer">pdf</a>
@@ -384,12 +384,12 @@
           <ul class="project-list">
             <li>
               <div class="project-name">Fact2Act (in progress)</div>
-              <div class="project-desc">How LLM systems use evidence spread across roles to make decisions, separating task success from evidence-supported action.</div>
+              <div class="project-desc">Process-based evaluation of multi-agent LLM decisions: tracing evidence through role-specific agent reports, decisions and task outcomes, to separate success supported by the available information from success achieved without sufficient evidence.</div>
               <div class="project-link"><span class="coming-soon">preprint in preparation</span></div>
             </li>
             <li>
               <div class="project-name">CRSE / FBA Encoder</div>
-              <div class="project-desc">A robust semantic encoder for Byzantine-resilient semantic agreement.</div>
+              <div class="project-desc">Semantic encoder fine-tuned with supervised contrastive learning and adversarial hard negatives, used to check whether agents agree on supporting meaning rather than only on verdicts.</div>
               <div class="project-link"><a href="https://github.com/HrxuAlbert/FBA_ENCODER" target="_blank" rel="noopener noreferrer">github.com/HrxuAlbert/FBA_ENCODER</a></div>
             </li>
             <li>
@@ -409,18 +409,32 @@
           <h2>Education</h2>
           <p>
             <strong>University of Glasgow</strong><br />
-            PhD in Engineering, James Watt School of Engineering, 2024–present
+            PhD, James Watt School of Engineering, Oct 2024–present
           </p>
           <p>
-            <strong>University of Glasgow &amp; University of Electronic Science and Technology of China</strong><br />
-            BEng in Communication Engineering (dual degree), 2024
+            <strong>University of Glasgow</strong><br />
+            BEng in Electronics and Electrical Engineering, Sep 2020–Jul 2024
+          </p>
+          <p>
+            <strong>University of Electronic Science and Technology of China (UESTC)</strong><br />
+            BEng in Communication Engineering, Sep 2020–Jul 2024<br />
+            <span class="coming-soon">Dual-degree programme with the University of Glasgow</span>
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>Talks</h2>
+          <p>
+            Invited talk on the multi-round voting consensus framework, Autonomous Systems &amp; Connectivity
+            Research Programme, University of Glasgow, Mar 2025
           </p>
         </section>
 
         <section class="section">
           <h2>Teaching</h2>
           <p>
-            Graduate Teaching Assistant, James Watt School of Engineering, University of Glasgow, 2025–present
+            Graduate Teaching Assistant (course development), University of Glasgow, Apr 2025–Jul 2025.
+            Revised undergraduate and postgraduate lecture slides with lecturers and designed assignments.
           </p>
         </section>
 
