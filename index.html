@@ -322,12 +322,17 @@
             decisions and outcomes so that people can tell a well-supported decision from a lucky one,
             and know when human review is needed.
           </p>
+          <p>
+            Beyond diagnosing these failures, I am moving towards fixing them: using reinforcement learning
+            and post-training to teach models to keep their decisions within what the evidence supports,
+            with the evaluations above serving as targets and checks for that training.
+          </p>
         </section>
 
         <section class="section">
           <h2>Research agenda</h2>
           <p>
-            I am currently working on three related questions:
+            My work so far addresses the first three questions; the fourth is where I am heading next.
           </p>
           <ol class="agenda-list">
             <li>
@@ -341,6 +346,10 @@
             <li>
               <span class="agenda-q">How can evaluation support human oversight?</span>
               <span class="agenda-d">Designing evaluations that help people recognise uncertainty, question unsupported conclusions and decide when an automated judgement needs human review.</span>
+            </li>
+            <li>
+              <span class="agenda-q">Can training close these gaps?</span>
+              <span class="agenda-d">Using reinforcement learning and post-training to improve how models and agents act on conflicting or incomplete evidence, such as abstaining or flagging a conflict when warranted, and measuring whether gains hold on evaluations that separate supported from unsupported success.</span>
             </li>
           </ol>
         </section>
