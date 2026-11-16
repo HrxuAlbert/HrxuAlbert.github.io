@@ -1,0 +1,30 @@
+title: Haoran Xu
+description: "Research on how language models and multi-agent systems gather, communicate, and use evidence to make reliable decisions."
+url: "https://hrxualbert.github.io"
+baseurl: ""
+lang: en
+timezone: Europe/London
+markdown: kramdown
+highlighter: rouge
+permalink: /notes/:title/
+future: false
+show_drafts: false
+strict_front_matter: true
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: note
+      type: Research Note
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - scripts
+  - LOCAL_NOTES.md
+  - publish.sh

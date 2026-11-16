@@ -1,0 +1,12 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="wordmark" href="{{ '/' | relative_url }}">Haoran Xu <span lang="zh-Hans">许浩然</span></a>
+    <nav aria-label="Main navigation">
+      <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a>
+      <a href="{{ '/#research' | relative_url }}">Research</a>
+      <a href="{{ '/#publications' | relative_url }}">Publications</a>
+      <a href="{{ '/notes/' | relative_url }}"{% if page.url == '/notes/' %} aria-current="page"{% endif %}>Research Notes</a>
+      <a href="{{ '/#about' | relative_url }}">About</a>
+    </nav>
+  </div>
+</header>

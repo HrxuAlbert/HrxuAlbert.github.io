@@ -4,3 +4,12 @@ publish.sh
 
 # macOS
 .DS_Store
+._*
+
+# Local Jekyll builds and dependencies
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+.bundle/
+vendor/

@@ -1,313 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Haoran Xu</title>
-  <style>
-    :root {
-      --text: #222222;
-      --muted: #666666;
-      --line: #e5e5e5;
-      --link: #4f7fcf;
-      --bg: #ffffff;
-      --maxw: 1200px;
-    }
+---
+layout: default
+---
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <h1 id="hero-title">Haoran Xu <span lang="zh-Hans">许浩然</span></h1>
+    <p class="hero-affiliation">PhD Researcher, University of Glasgow</p>
+    <p class="hero-intro">I study how language models and multi-agent systems gather, communicate, and use evidence to make reliable decisions.</p>
+    <ul class="social-links" aria-label="Contact and profiles">
+      <li><a href="mailto:hr.xu.albert@gmail.com">Email</a></li>
+      <li><a href="https://scholar.google.co.uk/citations?user=0P97wsUAAAAJ&amp;hl=en">Google Scholar</a></li>
+      <li><a href="https://github.com/HrxuAlbert">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/haoran-xu-2454b0336/">LinkedIn</a></li>
+    </ul>
+  </div>
+  <figure class="hero-portrait">
+    <img src="{{ '/assets/profile.jpg' | relative_url }}" alt="Haoran Xu outdoors overlooking a city" width="800" height="800" fetchpriority="high">
+  </figure>
+</section>
 
-    * { box-sizing: border-box; }
+<section id="research" class="home-section" aria-labelledby="research-title">
+  <div class="section-heading"><div><h2 id="research-title">Current research</h2></div><a href="#projects">Ongoing projects</a></div>
+  <div class="research-themes">
+    <article><h3>Evidence-aware decision making</h3><p>When do model judgements go beyond what the evidence supports? I study unsupported commitment, conflicting evidence, and when rejection or abstention is warranted.</p></article>
+    <article><h3>Multi-agent evidence communication</h3><p>How is distributed evidence selected, summarised, communicated, and integrated? I examine information loss, distortion, and unsupported conclusions across agent reports and decisions.</p></article>
+    <article><h3>LLM and agent evaluation</h3><p>How can we distinguish well-supported decisions from lucky outcomes? I build evaluations that expose evidence gaps and help people decide when human review is needed.</p></article>
+  </div>
+  <p class="research-next">I am moving towards reinforcement learning and post-training to improve how models act on conflicting or incomplete evidence, using these evaluations as training targets and checks.</p>
+</section>
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.55;
-    }
+<section id="publications" class="home-section" aria-labelledby="publications-title">
+  <div class="section-heading"><div><h2 id="publications-title">Publications and preprints</h2></div><a href="https://scholar.google.co.uk/citations?user=0P97wsUAAAAJ&amp;hl=en">Google Scholar</a></div>
+  <ul class="work-list">
+            <li>
+              <h3 class="work-title">Certifiable Semantic Agreement Among LLM Agents: What the Admissibility Instrument Decides</h3>
+              <div class="work-meta"><strong>Haoran Xu</strong>, Lei Zhang, Iadh Ounis, Xianbin Wang</div>
+              <div class="work-meta">Submitted to Transactions on Machine Learning Research (TMLR). arXiv preprint arXiv:2606.07316, 2026</div>
+              <div class="work-links">
+                <a href="https://arxiv.org/abs/2606.07316" target="_blank" rel="noopener noreferrer">arXiv</a> ·
+                <a href="https://arxiv.org/pdf/2606.07316" target="_blank" rel="noopener noreferrer">pdf</a>
+              </div>
+            </li>
+            <li>
+              <h3 class="work-title">Cherry-pick Override: LLM Judges Under-use the Non-Directional Verdicts Their Contract Authorizes</h3>
+              <div class="work-meta"><strong>Haoran Xu</strong></div>
+              <div class="work-meta">arXiv preprint arXiv:2606.07834, 2026</div>
+              <div class="work-links">
+                <a href="https://arxiv.org/abs/2606.07834" target="_blank" rel="noopener noreferrer">arXiv</a> ·
+                <a href="https://arxiv.org/pdf/2606.07834" target="_blank" rel="noopener noreferrer">pdf</a> ·
+                <a href="https://github.com/HrxuAlbert/cherry-pick-override" target="_blank" rel="noopener noreferrer">code</a>
+              </div>
+            </li>
+            <li>
+              <h3 class="work-title">A Multi-Round Voting Consensus Framework via Evolutionary Game Theory and Score Completion</h3>
+              <div class="work-meta"><strong>Haoran Xu</strong>, Zhongxu Dong, Yixuan Fan, Huanyu Wu, Qiming Li, Yao Sun, Lei Zhang</div>
+              <div class="work-meta">IEEE International Conference on Communications Workshops (ICC Workshops, SecCPS), Glasgow, 2026</div>
+              <div class="work-links">
+                <a href="https://doi.org/10.1109/ICCWorkshops63917.2026.11586390" target="_blank" rel="noopener noreferrer">paper</a> ·
+                <a href="https://eprints.gla.ac.uk/388443/" target="_blank" rel="noopener noreferrer">accepted version</a>
+              </div>
+            </li>
+          </ul>
+</section>
 
-    a {
-      color: var(--link);
-      text-decoration: none;
-    }
+<section id="research-notes" class="home-section" aria-labelledby="notes-title">
+  <div class="section-heading"><div><h2 id="notes-title">Research Notes</h2></div><a href="{{ '/notes/' | relative_url }}">All notes</a></div>
+  <p class="section-intro">Research observations, experimental notes, and perspectives on evidence and AI evaluation.</p>
+  {% assign latest_posts = site.posts | sort: 'date' | reverse | slice: 0, 3 %}
+  {% if latest_posts.size > 0 %}
+    {% include post-list.html posts=latest_posts %}
+  {% else %}
+    <div class="empty-notes compact"><p>No notes published yet.</p></div>
+  {% endif %}
+</section>
 
-    a:hover {
-      text-decoration: underline;
-    }
+<section id="projects" class="home-section" aria-labelledby="projects-title">
+  <div class="section-heading"><div><h2 id="projects-title">Selected projects</h2></div></div>
+  <ul class="project-list">
+            <li>
+              <h3 class="project-name">Fact2Act (in progress)</h3>
+              <div class="project-desc">Process-based evaluation of multi-agent LLM decisions: tracing evidence through role-specific agent reports, decisions and task outcomes, to separate success supported by the available information from success achieved without sufficient evidence.</div>
+              <div class="project-link"><span class="coming-soon">preprint in preparation</span></div>
+            </li>
+            <li>
+              <h3 class="project-name">CRSE / FBA Encoder</h3>
+              <div class="project-desc">Semantic encoder fine-tuned with supervised contrastive learning and adversarial hard negatives, used to check whether agents agree on supporting meaning rather than only on verdicts.</div>
+              <div class="project-link"><a href="https://github.com/HrxuAlbert/FBA_ENCODER" target="_blank" rel="noopener noreferrer">github.com/HrxuAlbert/FBA_ENCODER</a></div>
+            </li>
+            <li>
+              <h3 class="project-name">LLM API Demos</h3>
+              <div class="project-desc">Lightweight demos for structured LLM API usage, agent workflows, and research prototyping.</div>
+              <div class="project-link"><a href="https://github.com/HrxuAlbert/LLM-API-demos" target="_blank" rel="noopener noreferrer">github.com/HrxuAlbert/LLM-API-demos</a></div>
+            </li>
+            <li>
+              <h3 class="project-name">Work Planner</h3>
+              <div class="project-desc">A local-first academic workflow tool for research planning and execution tracking.</div>
+              <div class="project-link"><a href="https://github.com/HrxuAlbert/Work-Planner" target="_blank" rel="noopener noreferrer">github.com/HrxuAlbert/Work-Planner</a></div>
+            </li>
+          </ul>
+</section>
 
-    .container {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 28px 34px 56px;
-    }
-
-    .header-bar {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .identity {
-      min-width: 280px;
-    }
-
-    .site-title {
-      font-size: 34px;
-      font-weight: 300;
-      margin: 0;
-      letter-spacing: -0.03em;
-    }
-
-    .site-subtitle {
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 16px;
-      font-weight: 600;
-    }
-
-    .site-affil {
-      margin-top: 8px;
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .site-tagline {
-      margin-top: 3px;
-      font-size: 15px;
-      color: var(--muted);
-      max-width: 560px;
-    }
-
-    .top-icons {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      padding-top: 6px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .top-icons a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: #000000;
-    }
-
-    .top-icons a:hover {
-      text-decoration: none;
-      opacity: 0.75;
-    }
-
-    .top-icons svg {
-      width: 30px;
-      height: 30px;
-      fill: currentColor;
-      display: block;
-    }
-
-    .divider {
-      border: 0;
-      border-top: 1px solid var(--line);
-      margin: 22px 0 36px;
-    }
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 270px;
-      gap: 52px;
-      align-items: start;
-    }
-
-    .main-col {
-      min-width: 0;
-    }
-
-    .side-col {
-      padding-top: 108px;
-    }
-
-    .profile-photo {
-      width: 100%;
-      aspect-ratio: 1 / 1.08;
-      background: linear-gradient(135deg, #f1f5f9, #dbe4ee);
-      border: 1px solid var(--line);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #4b5563;
-      font-size: 42px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-    }
-
-    .profile-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    h2 {
-      font-size: 28px;
-      margin: 0 0 20px;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-    }
-
-    p {
-      margin: 0 0 18px;
-      font-size: 18px;
-    }
-
-    .section {
-      margin-bottom: 42px;
-    }
-
-    .work-list {
-      margin: 0;
-      padding-left: 38px;
-      font-size: 18px;
-    }
-
-    .work-list li {
-      margin-bottom: 24px;
-      padding-left: 2px;
-    }
-
-    .work-title {
-      font-weight: 700;
-      font-size: 18px;
-    }
-
-    .work-meta {
-      color: #333333;
-      margin-top: 2px;
-    }
-
-    .work-links {
-      margin-top: 2px;
-    }
-
-    .coming-soon {
-      color: var(--muted);
-    }
-
-    .agenda-list {
-      margin: 0;
-      padding-left: 24px;
-      font-size: 18px;
-    }
-
-    .agenda-list li {
-      margin-bottom: 18px;
-      padding-left: 4px;
-    }
-
-    .agenda-q {
-      font-weight: 700;
-      display: block;
-    }
-
-    .agenda-d {
-      color: #333333;
-      display: block;
-      margin-top: 2px;
-    }
-
-    .project-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      font-size: 18px;
-    }
-
-    .project-list li {
-      margin-bottom: 20px;
-    }
-
-    .project-name {
-      font-weight: 700;
-    }
-
-    .project-desc {
-      color: #333333;
-      margin-top: 2px;
-    }
-
-    .project-link {
-      margin-top: 2px;
-    }
-
-    .footer {
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    @media (max-width: 900px) {
-      .container {
-        padding: 24px 20px 42px;
-      }
-
-      .header-bar {
-        flex-direction: column;
-      }
-
-      .top-icons {
-        justify-content: flex-start;
-        gap: 18px;
-        padding-top: 0;
-      }
-
-      .content-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-
-      .side-col {
-        order: -1;
-        padding-top: 0;
-        max-width: 240px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <main class="container">
-    <header class="header-bar">
-      <div class="identity">
-        <h1 class="site-title">Haoran Xu</h1>
-        <div class="site-subtitle">许浩然</div>
-        <div class="site-affil">PhD Student, University of Glasgow</div>
-        <div class="site-tagline">LLM Agents · Multi-Agent Systems · LLM Evaluation</div>
-      </div>
-
-      <nav class="top-icons" aria-label="External links">
-        <a href="mailto:hr.xu.albert@gmail.com" aria-label="Email" title="hr.xu.albert@gmail.com">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 5.75A2.75 2.75 0 0 1 5.25 3h13.5a2.75 2.75 0 0 1 2.75 2.75v12.5A2.75 2.75 0 0 1 18.75 21H5.25A2.75 2.75 0 0 1 2.5 18.25V5.75Zm2.33-.75L12 10.57 19.17 5H4.83Zm14.67 1.31-7.04 5.48a.75.75 0 0 1-.92 0L4.5 6.31v11.94c0 .41.34.75.75.75h13.5c.41 0 .75-.34.75-.75V6.31Z"/></svg>
-        </a>
-        <a href="https://scholar.google.co.uk/citations?user=0P97wsUAAAAJ&amp;hl=en" aria-label="Google Scholar" title="Google Scholar" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 8.15l11 6 9-4.91V17h2V8.15L12 2Zm-7.3 6.15L12 4.17l7.3 3.98L12 12.13 4.7 8.15ZM6 13.33v3.42C6 19.2 8.69 20 12 20s6-.8 6-3.25v-3.42L12 16.6 6 13.33Z"/></svg>
-        </a>
-        <a href="https://github.com/HrxuAlbert" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.66.5 12.03c0 5.1 3.3 9.42 7.88 10.95.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.29-5.25-5.74 0-1.27.45-2.31 1.19-3.13-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.19 1.2a10.98 10.98 0 0 1 5.8 0c2.22-1.51 3.19-1.2 3.19-1.2.63 1.59.23 2.77.11 3.06.74.82 1.19 1.86 1.19 3.13 0 4.46-2.69 5.44-5.26 5.73.41.36.78 1.08.78 2.18 0 1.57-.01 2.84-.01 3.22 0 .31.21.67.8.56A11.53 11.53 0 0 0 23.5 12.03C23.5 5.66 18.35.5 12 .5Z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/haoran-xu-2454b0336/" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.48 2.48 0 1 0 5 8.46 2.48 2.48 0 0 0 4.98 3.5ZM3.5 9.75h3v10.75h-3V9.75Zm5.25 0h2.88v1.47h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6v6.24h-3v-5.53c0-1.32-.02-3.02-1.84-3.02-1.85 0-2.13 1.45-2.13 2.93v5.62h-3V9.75Z"/></svg>
-        </a>
-      </nav>
-    </header>
-
-    <hr class="divider" />
-
-    <div class="content-grid">
-      <div class="main-col">
-        <section class="section">
-          <h2>About</h2>
-          <p>
+<section id="about" class="home-section background-section" aria-labelledby="about-title">
+  <div class="section-heading"><div><h2 id="about-title">Background</h2></div></div>
+  <div class="background-grid">
+    <div class="biography"><h3>About me</h3><p>
             I am a PhD student in the James Watt School of Engineering at the University of Glasgow,
             supervised by Prof. Lei Zhang and Prof. Iadh Ounis.
           </p>
@@ -326,97 +121,9 @@
             Beyond diagnosing these failures, I am moving towards fixing them: using reinforcement learning
             and post-training to teach models to keep their decisions within what the evidence supports,
             with the evaluations above serving as targets and checks for that training.
-          </p>
-        </section>
-
-        <section class="section">
-          <h2>Research agenda</h2>
-          <p>
-            My work so far addresses the first three questions; the fourth is where I am heading next.
-          </p>
-          <ol class="agenda-list">
-            <li>
-              <span class="agenda-q">When do LLM judgements go beyond the evidence?</span>
-              <span class="agenda-d">Measuring when LLM judges and agents issue definitive verdicts on evidence that is conflicting or insufficient, and separating whether they recognise the conflict from what they finally decide.</span>
-            </li>
-            <li>
-              <span class="agenda-q">How does evidence flow through multi-agent decisions?</span>
-              <span class="agenda-d">Tracing evidence through agent reports, decisions and task outcomes to locate information loss and unsupported claims, and to distinguish success supported by the available information from success achieved without it.</span>
-            </li>
-            <li>
-              <span class="agenda-q">How can evaluation support human oversight?</span>
-              <span class="agenda-d">Designing evaluations that help people recognise uncertainty, question unsupported conclusions and decide when an automated judgement needs human review.</span>
-            </li>
-            <li>
-              <span class="agenda-q">Can training close these gaps?</span>
-              <span class="agenda-d">Using reinforcement learning and post-training to improve how models and agents act on conflicting or incomplete evidence, such as abstaining or flagging a conflict when warranted, and measuring whether gains hold on evaluations that separate supported from unsupported success.</span>
-            </li>
-          </ol>
-        </section>
-
-        <section class="section">
-          <h2>Publications and preprints</h2>
-          <ul class="work-list">
-            <li>
-              <div class="work-title">Certifiable Semantic Agreement Among LLM Agents: What the Admissibility Instrument Decides</div>
-              <div class="work-meta">Haoran Xu, Lei Zhang, Iadh Ounis, Xianbin Wang</div>
-              <div class="work-meta">Submitted to Transactions on Machine Learning Research (TMLR). arXiv preprint arXiv:2606.07316, 2026</div>
-              <div class="work-links">
-                <a href="https://arxiv.org/abs/2606.07316" target="_blank" rel="noopener noreferrer">arXiv</a> ·
-                <a href="https://arxiv.org/pdf/2606.07316" target="_blank" rel="noopener noreferrer">pdf</a>
-              </div>
-            </li>
-            <li>
-              <div class="work-title">Cherry-pick Override: LLM Judges Under-use the Non-Directional Verdicts Their Contract Authorizes</div>
-              <div class="work-meta">Haoran Xu</div>
-              <div class="work-meta">arXiv preprint arXiv:2606.07834, 2026</div>
-              <div class="work-links">
-                <a href="https://arxiv.org/abs/2606.07834" target="_blank" rel="noopener noreferrer">arXiv</a> ·
-                <a href="https://arxiv.org/pdf/2606.07834" target="_blank" rel="noopener noreferrer">pdf</a> ·
-                <a href="https://github.com/HrxuAlbert/cherry-pick-override" target="_blank" rel="noopener noreferrer">code</a>
-              </div>
-            </li>
-            <li>
-              <div class="work-title">A Multi-Round Voting Consensus Framework via Evolutionary Game Theory and Score Completion</div>
-              <div class="work-meta">Haoran Xu, Zhongxu Dong, Yixuan Fan, Huanyu Wu, Qiming Li, Yao Sun, Lei Zhang</div>
-              <div class="work-meta">IEEE International Conference on Communications Workshops (ICC Workshops, SecCPS), Glasgow, 2026</div>
-              <div class="work-links">
-                <a href="https://doi.org/10.1109/ICCWorkshops63917.2026.11586390" target="_blank" rel="noopener noreferrer">paper</a> ·
-                <a href="https://eprints.gla.ac.uk/388443/" target="_blank" rel="noopener noreferrer">accepted version</a>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <section class="section">
-          <h2>Selected projects</h2>
-          <ul class="project-list">
-            <li>
-              <div class="project-name">Fact2Act (in progress)</div>
-              <div class="project-desc">Process-based evaluation of multi-agent LLM decisions: tracing evidence through role-specific agent reports, decisions and task outcomes, to separate success supported by the available information from success achieved without sufficient evidence.</div>
-              <div class="project-link"><span class="coming-soon">preprint in preparation</span></div>
-            </li>
-            <li>
-              <div class="project-name">CRSE / FBA Encoder</div>
-              <div class="project-desc">Semantic encoder fine-tuned with supervised contrastive learning and adversarial hard negatives, used to check whether agents agree on supporting meaning rather than only on verdicts.</div>
-              <div class="project-link"><a href="https://github.com/HrxuAlbert/FBA_ENCODER" target="_blank" rel="noopener noreferrer">github.com/HrxuAlbert/FBA_ENCODER</a></div>
-            </li>
-            <li>
-              <div class="project-name">LLM API Demos</div>
-              <div class="project-desc">Lightweight demos for structured LLM API usage, agent workflows, and research prototyping.</div>
-              <div class="project-link"><a href="https://github.com/HrxuAlbert/LLM-API-demos" target="_blank" rel="noopener noreferrer">github.com/HrxuAlbert/LLM-API-demos</a></div>
-            </li>
-            <li>
-              <div class="project-name">Work Planner</div>
-              <div class="project-desc">A local-first academic workflow tool for research planning and execution tracking.</div>
-              <div class="project-link"><a href="https://github.com/HrxuAlbert/Work-Planner" target="_blank" rel="noopener noreferrer">github.com/HrxuAlbert/Work-Planner</a></div>
-            </li>
-          </ul>
-        </section>
-
-        <section class="section">
-          <h2>Education</h2>
-          <p>
+          </p></div>
+    <div class="academic-background">
+      <section aria-labelledby="education-title"><h3 id="education-title">Education</h3><p>
             <strong>University of Glasgow</strong><br />
             PhD, James Watt School of Engineering, Oct 2024–present
           </p>
@@ -428,34 +135,16 @@
             <strong>University of Electronic Science and Technology of China (UESTC)</strong><br />
             BEng in Communication Engineering, Sep 2020–Jul 2024<br />
             <span class="coming-soon">Dual-degree programme with the University of Glasgow</span>
-          </p>
-        </section>
-
-        <section class="section">
-          <h2>Talks</h2>
-          <p>
+          </p></section>
+      <section aria-labelledby="talks-title"><h3 id="talks-title">Talks</h3><p>
             Invited talk on the multi-round voting consensus framework, Autonomous Systems &amp; Connectivity
             Research Programme, University of Glasgow, Mar 2025
-          </p>
-        </section>
-
-        <section class="section">
-          <h2>Teaching</h2>
-          <p>
+          </p></section>
+      <section aria-labelledby="teaching-title"><h3 id="teaching-title">Teaching</h3><p>
             Graduate Teaching Assistant (course development), University of Glasgow, Apr 2025–Jul 2025.
             Revised undergraduate and postgraduate lecture slides with lecturers and designed assignments.
-          </p>
-        </section>
-
-        <div class="footer">Last updated: October 2026</div>
-      </div>
-
-      <aside class="side-col">
-        <div class="profile-photo" aria-label="profile photo">
-          <img src="assets/profile.jpg" alt="Haoran Xu" />
-        </div>
-      </aside>
+          </p></section>
     </div>
-  </main>
-</body>
-</html>
+  </div>
+  <p class="content-date">Academic information last updated: October 2026.</p>
+</section>

@@ -1,0 +1,21 @@
+---
+layout: default
+title: Research Notes
+description: "Research questions, experimental observations, and perspectives on evidence and reliable AI decisions."
+permalink: /notes/
+---
+<div class="notes-index">
+  <header class="page-intro">
+    <h1>Research Notes</h1>
+    <p class="page-deck">A place for research questions, experimental observations, negative results, and ideas that are still taking shape.</p>
+  </header>
+  <section aria-labelledby="all-notes-title">
+    <div class="section-heading"><h2 id="all-notes-title">All notes</h2></div>
+    {% assign posts = site.posts | sort: 'date' | reverse %}
+    {% if posts.size > 0 %}
+      {% include post-list.html posts=posts show_tags=true %}
+    {% else %}
+      <div class="empty-notes"><h3>No notes published yet.</h3><p>Future notes will distinguish observations from hypotheses, interpretations, and limitations.</p><a href="{{ '/#research' | relative_url }}">Current research</a></div>
+    {% endif %}
+  </section>
+</div>

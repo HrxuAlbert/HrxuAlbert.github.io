@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<article class="note-page">
+  <a class="back-link" href="{{ '/notes/' | relative_url }}">← All research notes</a>
+  <header class="note-header">
+    <div class="entry-meta"><span>{{ page.type | default: 'Research Note' | escape }}</span><span aria-hidden="true">/</span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%-d %B %Y' }}</time></div>
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.description %}<p class="note-deck">{{ page.description | escape }}</p>{% endif %}
+    {% if page.tags.size > 0 %}<ul class="tag-list" aria-label="Topics">{% for tag in page.tags %}<li>{{ tag | escape }}</li>{% endfor %}</ul>{% endif %}
+  </header>
+  <div class="note-content">{{ content }}</div>
+  <footer class="note-end"><a href="{{ '/notes/' | relative_url }}">← Back to research notes</a><a href="mailto:hr.xu.albert@gmail.com">Discuss this note by email ↗</a></footer>
+</article>
