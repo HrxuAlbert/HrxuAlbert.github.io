@@ -28,4 +28,3 @@ exclude:
   - scripts
   - LOCAL_NOTES.md
   - publish.sh
-  - learning-contributions/README.md

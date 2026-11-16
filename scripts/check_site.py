@@ -3,7 +3,6 @@
 import argparse
 from html.parser import HTMLParser
 from pathlib import Path
-import json
 import re
 import shutil
 import subprocess
@@ -56,13 +55,12 @@ def check_routes(destination):
 
 
 def check_static(destination):
-    for name in ['assets/profile.jpg', 'learning-contributions/index.html',
-                 'learning-contributions/contributions.json']:
+    for name in ['assets/profile.jpg']:
         assert (ROOT / name).read_bytes() == (destination / name).read_bytes(), name
     for excluded in ['_drafts', 'README.md', 'LOCAL_NOTES.md', 'publish.sh', 'scripts',
-                     'Gemfile', 'Gemfile.lock', 'learning-contributions/README.md']:
+                     'Gemfile', 'Gemfile.lock', 'learning-contributions']:
         assert not (destination / excluded).exists(), f'Source leaked: {excluded}'
-    json.loads((destination / 'learning-contributions/contributions.json').read_text())
+    assert not (ROOT / 'learning-contributions').exists(), 'Retired source directory remains'
 
 
 def main():
@@ -138,8 +136,8 @@ def rendering_check(evidence):
         (source / 'assets/notes').mkdir(exist_ok=True)
         (source / 'assets/notes/rendering-check.svg').write_text(
             '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180">'
-            '<rect width="720" height="180" fill="#edf3f7"/>'
-            '<text x="40" y="100" font-size="24" fill="#245d86">Local rendering check</text></svg>')
+            '<rect width="720" height="180" fill="#f5f5f5"/>'
+            '<text x="40" y="100" font-size="24" fill="#333333">Local rendering check</text></svg>')
         destination = args.fixture_output.resolve() if args.fixture_output else temp / 'built'
         build(source, destination)
         check_routes(destination)
@@ -158,7 +156,7 @@ def rendering_check(evidence):
             text = file.read_text()
             assert not any(marker in text for marker in ['UNPUBLISHED_SENTINEL', 'DRAFT_SENTINEL', 'FUTURE_SENTINEL'])
         assert not (destination / 'notes/research-note-template').exists()
-        print('PASS: production build; local links; unchanged static routes; empty state; '
+        print('PASS: production build; local links; preserved photo; retired heatmap absent; empty state; '
               'post ordering; latest-three preview; metadata; permanent URLs; Markdown; '
               'nested assets; drafts, unpublished posts, and future posts excluded.')
 

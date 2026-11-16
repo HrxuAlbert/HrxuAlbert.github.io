@@ -3,35 +3,33 @@ layout: default
 ---
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero-copy">
-    <p class="eyebrow">PhD Researcher · University of Glasgow</p>
-    <p class="hero-name">Haoran Xu <span lang="zh-Hans">许浩然</span></p>
-    <h1 id="hero-title">Making AI decisions accountable to evidence.</h1>
+    <h1 id="hero-title">Haoran Xu <span lang="zh-Hans">许浩然</span></h1>
+    <p class="hero-affiliation">PhD Researcher, University of Glasgow</p>
     <p class="hero-intro">I study how language models and multi-agent systems gather, communicate, and use evidence to make reliable decisions.</p>
     <ul class="social-links" aria-label="Contact and profiles">
-      <li><a href="mailto:hr.xu.albert@gmail.com">Email ↗</a></li>
-      <li><a href="https://scholar.google.co.uk/citations?user=0P97wsUAAAAJ&amp;hl=en">Google Scholar ↗</a></li>
-      <li><a href="https://github.com/HrxuAlbert">GitHub ↗</a></li>
-      <li><a href="https://www.linkedin.com/in/haoran-xu-2454b0336/">LinkedIn ↗</a></li>
+      <li><a href="mailto:hr.xu.albert@gmail.com">Email</a></li>
+      <li><a href="https://scholar.google.co.uk/citations?user=0P97wsUAAAAJ&amp;hl=en">Google Scholar</a></li>
+      <li><a href="https://github.com/HrxuAlbert">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/haoran-xu-2454b0336/">LinkedIn</a></li>
     </ul>
   </div>
   <figure class="hero-portrait">
     <img src="{{ '/assets/profile.jpg' | relative_url }}" alt="Haoran Xu outdoors overlooking a city" width="800" height="800" fetchpriority="high">
-    <figcaption>James Watt School of Engineering<br>University of Glasgow</figcaption>
   </figure>
 </section>
 
 <section id="research" class="home-section" aria-labelledby="research-title">
-  <div class="section-heading"><div><p class="eyebrow">Questions that guide my work</p><h2 id="research-title">Current research</h2></div><a href="#projects">Ongoing projects ↓</a></div>
+  <div class="section-heading"><div><h2 id="research-title">Current research</h2></div><a href="#projects">Ongoing projects</a></div>
   <div class="research-themes">
-    <article><span class="theme-number" aria-hidden="true">01</span><h3>Evidence-aware<br> decision making</h3><p>When do model judgements go beyond what the evidence supports? I study unsupported commitment, conflicting evidence, and when rejection or abstention is warranted.</p></article>
-    <article><span class="theme-number" aria-hidden="true">02</span><h3>Multi-agent evidence<br> communication</h3><p>How is distributed evidence selected, summarised, communicated, and integrated? I examine information loss, distortion, and unsupported conclusions across agent reports and decisions.</p></article>
-    <article><span class="theme-number" aria-hidden="true">03</span><h3>LLM and agent<br> evaluation</h3><p>How can we distinguish well-supported decisions from lucky outcomes? I build evaluations that expose evidence gaps and help people decide when human review is needed.</p></article>
+    <article><h3>Evidence-aware decision making</h3><p>When do model judgements go beyond what the evidence supports? I study unsupported commitment, conflicting evidence, and when rejection or abstention is warranted.</p></article>
+    <article><h3>Multi-agent evidence communication</h3><p>How is distributed evidence selected, summarised, communicated, and integrated? I examine information loss, distortion, and unsupported conclusions across agent reports and decisions.</p></article>
+    <article><h3>LLM and agent evaluation</h3><p>How can we distinguish well-supported decisions from lucky outcomes? I build evaluations that expose evidence gaps and help people decide when human review is needed.</p></article>
   </div>
-  <p class="research-next"><strong>Looking ahead.</strong> I am moving towards reinforcement learning and post-training to improve how models act on conflicting or incomplete evidence, using these evaluations as training targets and checks.</p>
+  <p class="research-next">I am moving towards reinforcement learning and post-training to improve how models act on conflicting or incomplete evidence, using these evaluations as training targets and checks.</p>
 </section>
 
 <section id="publications" class="home-section" aria-labelledby="publications-title">
-  <div class="section-heading"><div><p class="eyebrow">Papers &amp; preprints</p><h2 id="publications-title">Publications</h2></div><a href="https://scholar.google.co.uk/citations?user=0P97wsUAAAAJ&amp;hl=en">Google Scholar ↗</a></div>
+  <div class="section-heading"><div><h2 id="publications-title">Publications and preprints</h2></div><a href="https://scholar.google.co.uk/citations?user=0P97wsUAAAAJ&amp;hl=en">Google Scholar</a></div>
   <ul class="work-list">
             <li>
               <h3 class="work-title">Certifiable Semantic Agreement Among LLM Agents: What the Admissibility Instrument Decides</h3>
@@ -65,18 +63,18 @@ layout: default
 </section>
 
 <section id="research-notes" class="home-section" aria-labelledby="notes-title">
-  <div class="section-heading"><div><p class="eyebrow">Observations &amp; open questions</p><h2 id="notes-title">Research Notes</h2></div><a href="{{ '/notes/' | relative_url }}">All notes →</a></div>
-  <p class="section-intro">Short notes on evidence, evaluation, and reliable AI decisions. A space for useful observations, including negative results and ideas still being tested.</p>
+  <div class="section-heading"><div><h2 id="notes-title">Research Notes</h2></div><a href="{{ '/notes/' | relative_url }}">All notes</a></div>
+  <p class="section-intro">Research observations, experimental notes, and perspectives on evidence and AI evaluation.</p>
   {% assign latest_posts = site.posts | sort: 'date' | reverse | slice: 0, 3 %}
   {% if latest_posts.size > 0 %}
     {% include post-list.html posts=latest_posts %}
   {% else %}
-    <div class="empty-notes compact"><p>No notes published yet.</p><span>Think broadly, test narrowly, scale selectively.</span></div>
+    <div class="empty-notes compact"><p>No notes published yet.</p></div>
   {% endif %}
 </section>
 
 <section id="projects" class="home-section" aria-labelledby="projects-title">
-  <div class="section-heading"><div><p class="eyebrow">Ongoing work &amp; research tools</p><h2 id="projects-title">Selected projects</h2></div></div>
+  <div class="section-heading"><div><h2 id="projects-title">Selected projects</h2></div></div>
   <ul class="project-list">
             <li>
               <h3 class="project-name">Fact2Act (in progress)</h3>
@@ -102,7 +100,7 @@ layout: default
 </section>
 
 <section id="about" class="home-section background-section" aria-labelledby="about-title">
-  <div class="section-heading"><div><p class="eyebrow">Background</p><h2 id="about-title">About &amp; academic life</h2></div></div>
+  <div class="section-heading"><div><h2 id="about-title">Background</h2></div></div>
   <div class="background-grid">
     <div class="biography"><h3>About me</h3><p>
             I am a PhD student in the James Watt School of Engineering at the University of Glasgow,

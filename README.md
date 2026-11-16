@@ -19,7 +19,6 @@ assets/site.css             Shared visual design and homepage styles
 assets/notes.css             Article typography, code, figures, tables
 assets/notes.js              Table/code keyboard access; optional math rendering
 assets/profile.jpg          Existing profile photograph
-learning-contributions/     Existing standalone Notion embed, unchanged
 scripts/check_site.py       Build and publishing-workflow checks
 ```
 
@@ -31,7 +30,9 @@ The Gemfile pins Jekyll 3.10.0, Kramdown, its GFM parser, Liquid, and Rouge to
 the [GitHub Pages core versions](https://pages.github.com/versions/). WEBrick
 supports local preview. No custom Jekyll plugins are used. KaTeX 0.19.1 is
 loaded from jsDelivr with integrity checks **only on articles with `math: true`**.
-The homepage and notes index need no JavaScript or external fonts.
+The homepage and notes index need no JavaScript or external fonts. The visual
+design uses a white background, neutral text, system sans-serif typography,
+and compact headings; it does not depend on OpenAI brand fonts or assets.
 
 ## Preview locally
 
@@ -153,8 +154,9 @@ The Python check uses only the standard library and the installed bundle. It
 builds the real site, then builds a temporary copy with test-only posts to check
 ordering, latest-post synchronization, metadata, stable URLs, Markdown features,
 nested assets, and exclusion of unpublished material. Fixtures never enter the
-real `_posts` directory. It also checks that the heatmap HTML, JSON, and profile
-photo survive the build byte-for-byte.
+real `_posts` directory. It also checks that the profile photo survives the
+build byte-for-byte and that the retired learning-contributions directory is
+absent from both the source tree and built output.
 
 If Pages fails, inspect the repository's Pages build/deployment logs. Confirm
 the publishing source remains `main` at `/`, `.nojekyll` has not been added,
@@ -164,6 +166,9 @@ stale local output, run `bundle exec jekyll clean`, then rebuild. Check nested
 asset URLs for missing `relative_url` and file-name case mismatches. An unchanged
 page may also be browser-cached; wait for the deployment to complete and reload.
 
-The `/learning-contributions/` page and its JSON remain independent static
-files, including the existing query parameters and refresh behavior. The
-feature is retained for this PR; its complete removal is a separate follow-up.
+The learning-contributions feature has been removed, including its page,
+activity data, and maintenance documentation. After this change is merged
+and deployed, `/learning-contributions/` and its JSON endpoint will no longer
+be available; old Notion embeds will stop working. This is an intentional
+removal, with no replacement route or data redirect. Earlier Git history
+remains unchanged.
